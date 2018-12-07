@@ -2,6 +2,7 @@ package br.com.backend.Backend.Service.IMPL;
 
 import br.com.backend.Backend.Exception.EcommerceException;
 import br.com.backend.Backend.Model.Produto;
+import br.com.backend.Backend.Model.Venda;
 import br.com.backend.Backend.Repository.ProdutoRepository;
 import br.com.backend.Backend.Service.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,9 @@ public class ProdutoServiceIMPL implements ProdutoService {
 
     @Autowired
     ProdutoRepository produtoRepository;
+
+    @Autowired
+    VendaServiceIMPL vendaService;
 
     @Override
     public List<Produto> listar() {
@@ -63,6 +67,12 @@ public class ProdutoServiceIMPL implements ProdutoService {
 
     @Override
     public void deletar(Long id_produto) {
+        Venda verificaVenda = vendaService.buscarPorIdProduto(id_produto);
+
+        if(verificaVenda != null){
+            vendaService.deletar(verificaVenda.getId_venda());
+        }
+
         produtoRepository.deletar(id_produto);
     }
 }
