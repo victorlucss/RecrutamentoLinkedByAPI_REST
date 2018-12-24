@@ -11,7 +11,7 @@ spring:
     serialization:
       fail-on-empty-beans: false
   datasource:
-    url: ${JDBC_DATABASE_URL}
-    username: ${JDBC_DATABASE_USERNAME}
-    password: ${JDBC_DATABASE_PASSWORD}
+    url: jdbc:postgresql://localhost:5432/springrest
+    username: capivara
+    password: 123456
     driver-class-name: org.postgresql.Driver
