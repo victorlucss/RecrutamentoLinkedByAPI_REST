@@ -2,10 +2,7 @@ package br.com.backend.Backend.Model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
@@ -24,6 +21,9 @@ public class Produto {
     private String imagem;
 
     private Double preco;
+
+    @ManyToOne
+    private Carrinho carrinho;
 
     public Produto() {
     }
