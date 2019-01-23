@@ -12,6 +12,6 @@ spring:
       fail-on-empty-beans: false
   datasource:
     url: jdbc:postgresql://localhost:5432/springrest
-    username: capivara
-    password: 123456
+    username: postgres
+    password: postgres
     driver-class-name: org.postgresql.Driver
